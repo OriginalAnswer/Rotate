@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+        }
+        .screen{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        section{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-items: center;
+        }
+        #section2{
+            background-color: #fff;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 2em;
+        }
+        #control-box{
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: rgba(0, 0, 0, 0.11) 0 0 20px;
+        }
+        .row1{
+            display: flex;
+            justify-content: center;
+            
+        }
+        .row2{
+            display: flex;
+            width: 100%;
+        }
+        .row2 i{
+            margin: auto;
+        }
+        .row2 i:nth-child(1) {
+            padding-right: 25px;
+        }
+        .row3{
+            display: flex;
+            justify-content: center;    
+        }
+        #section1{
+            display: flex;
+            border-right: 3px dotted;
+            border-color: aliceblue;
+            animation: bordercolor 5s ease-in-out infinite;
+        }
+        @keyframes bordercolor {
+            0%{
+                border-color: rgb(155, 0, 0);
+            }
+            40%{
+                border-color:rgb(0, 148, 10);    
+            }
+            60%{
+                border-color: rgb(16, 68, 165);
+            }
+            100%{
+                border-color: rgb(134, 0, 45);
+            }
+            
+        }
+        #round{
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            box-shadow: rgba(0, 0, 0, 0.11) 0 0 20px;
+            /* border: 1px saddlebrown solid; */
+            border-radius: 50%;
+            display: flex;
+            transition: 1s ease-in-out;
+        }
+        #line{
+            position: relative;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 1px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="screen">
+        <section id="section1">
+            <div id="round">
+                <div id="line"></div>
+            </div>
+        </section>
+
+        <section id="section2">
+            <div id="control-box">
+                <div class="row1"><i id="up" class="fas fa-caret-up"></i></div>
+                <div class="row2">
+                    <i id="left" class="fas fa-caret-left"></i>
+                    <i id="right" class="fas fa-caret-right"></i>
+                </div>
+                <div class="row3"><i id="down" class="fas fa-caret-down"></i></div>
+            </div>
+        </section>
+    </div>
+    <!-- 
+        <i class="fas fa-caret-up"></i>
+        <i class="fas fa-caret-down"></i>
+        <i class="fas fa-caret-left"></i>
+        <i class="fas fa-caret-right"></i>
+    -->
+    <script type="text/javascript">
+        const up = document.getElementById("up");
+        const down = document.getElementById("down");
+        const left = document.getElementById("left");
+        const right = document.getElementById("right");
+        // function rotline(){rot += 90;if(rot === 360){rot = 0;}}
+        // rotline();
+        let rot = 0;
+        up.onclick = function(){
+            if(rot === 0 ){rot = rot - 90;}
+            else if(rot=== 180){rot = 270;}
+            else{rot = -90;}
+            document.getElementById('round').style.transform = `rotate(${rot}deg)`;
+            console.log(rot);
+        }
+        left.onclick = function(){
+            if(rot === 0 || rot === -90){rot = -180;}
+            else {rot = 180;}
+            document.getElementById('round').style.transform = `rotate(${rot}deg)`;
+            console.log(rot);
+        }
+        down.onclick = function(){
+            if(rot === 0 || rot === -90 || rot === 180){rot = 90;}else{rot = -270;}
+            document.getElementById('round').style.transform = `rotate(${rot}deg)`;
+            console.log(rot);
+        }
+        right.onclick = function(){
+            if(rot === 0 || rot === -90 || rot === -180|| rot === 180){rot = 0;}
+            else if(rot===270){rot=360;}
+            else{rot = -360;}
+            document.getElementById('round').style.transform = `rotate(${rot}deg)`;
+            console.log(rot);
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
+</body>
+</html>
