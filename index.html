@@ -136,31 +136,70 @@
         const down = document.getElementById("down");
         const left = document.getElementById("left");
         const right = document.getElementById("right");
-        // function rotline(){rot += 90;if(rot === 360){rot = 0;}}
-        // rotline();
         let rot = 0;
+
+        //up key
+        // if(rot===0){rot= -90;}
+        // if(rot===90){rot= -90;}
+        // if(rot===180){rot= 270;}
+        // if(rot===270){rot= 270;}
+        // if(rot=== 360){rot= 270;}
+        // if(rot=== -90){rot= -90;}
+        // if(rot=== -180){rot= -90;}
+        // if(rot=== -270){rot= -90;}
+        // if(rot=== -360){rot= -90;}
+        //down key
+        // if(rot===0){rot= 90;}
+        // if(rot===90){rot= 90;}
+        // if(rot===180){rot= 90;}
+        // if(rot===270){rot= 90;}
+        // if(rot=== 360){rot= 90;}
+        // if(rot=== -90){rot= 90;}
+        // if(rot=== -180){rot= -270;}
+        // if(rot=== -270){rot= -270;}
+        // if(rot=== -360){rot= -270;}
+        //left key
+        // if(rot===0){rot= -180;}
+        // if(rot===90){rot= 180;}
+        // if(rot===180){rot= 180;}
+        // if(rot===270){rot= 180;}
+        // if(rot=== 360){rot= 180;}
+        // if(rot=== -90){rot= -180;}
+        // if(rot=== -180){rot= -180;}
+        // if(rot=== -270){rot= -180;}
+        // if(rot=== -360){rot= -180;}
+        //right key
+        // if(rot===0){rot= 0;}
+        // if(rot===90){rot= 0;}
+        // if(rot===180){rot= 0;}
+        // if(rot===270){rot= 360;}
+        // if(rot=== 360){rot= 360;}
+        // if(rot=== -90){rot= 0;}
+        // if(rot=== -180){rot= 0;}
+        // if(rot=== -270){rot= -360;}
+        // if(rot=== -360){rot= -360;}
         up.onclick = function(){
-            if(rot === 0 ){rot = rot - 90;}
-            else if(rot=== 180){rot = 270;}
+            if(rot===180||rot===270||rot===360){rot = 270;}
             else{rot = -90;}
             document.getElementById('round').style.transform = `rotate(${rot}deg)`;
             console.log(rot);
         }
-        left.onclick = function(){
-            if(rot === 0 || rot === -90){rot = -180;}
-            else {rot = 180;}
+        down.onclick = function(){
+            if(rot=== -180||rot=== -270||rot=== -360){rot = -270;}
+            else{rot = 90;}
             document.getElementById('round').style.transform = `rotate(${rot}deg)`;
             console.log(rot);
         }
-        down.onclick = function(){
-            if(rot === 0 || rot === -90 || rot === 180){rot = 90;}else{rot = -270;}
+        left.onclick = function(){
+            if(rot===90||rot===180||rot===270||rot===360){rot = 180;}
+            else{rot = -180;}
             document.getElementById('round').style.transform = `rotate(${rot}deg)`;
             console.log(rot);
         }
         right.onclick = function(){
-            if(rot === 0 || rot === -90 || rot === -180|| rot === 180){rot = 0;}
-            else if(rot===270){rot=360;}
-            else{rot = -360;}
+            if(rot === 270 || rot === 360 ){rot = 360;}
+            else if(rot===-270|| rot === -360){rot=-360;}
+            else{rot = 0;}
             document.getElementById('round').style.transform = `rotate(${rot}deg)`;
             console.log(rot);
         }
